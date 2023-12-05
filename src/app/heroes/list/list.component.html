@@ -1,0 +1,24 @@
+<p>Listado de héroes</p>
+
+<!-- el div solo se usa como un divisor de secciones. Se podría quitar-->
+<div *ngIf="deletedHero; else nothingWasDeleted">
+  <h3>Héroe borrado <small class="text-danger"> {{deletedHero}} </small></h3>
+</div>
+
+<!-- En el else se hace una referencia a este template-->
+<ng-template #nothingWasDeleted>
+  <h3>No ha borrado nada</h3>
+</ng-template>
+
+<button
+(click)="removeLastHero()"
+  class="btn btn-outline-danger">
+    Borrar último héroe
+</button>
+
+<ul class="mt-2 list-group">
+  <li *ngFor="let name of heroNames"
+    class="list-group-item">
+      {{name}}
+  </li>
+</ul>

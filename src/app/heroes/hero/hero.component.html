@@ -1,0 +1,42 @@
+<h1>{{name}}</h1>
+
+<dl>
+  <td>Nombre: </td>
+  <dd>{{name}}</dd>
+
+  <td>Edad: </td>
+  <dd>{{age}}</dd>
+
+  <td>Método: </td>
+  <dd>{{getHeroDescription()}}</dd>
+
+  <td>Capitalizado: </td>
+  <dd>{{capitalizedName}}</dd>
+</dl>
+
+<!--mx = m-argen en el eje x-->
+<!--una vez se hayan usado estos botones, se destruyen porque ya no sirven para nada.
+Para esto se usa ngIf: es propio de angular y no hace falta poner {{}}-->
+<!--- El === sirve para comprobar que sea exactamente igual, incluido el tipo de dato-->
+<button
+  *ngIf="name !== 'Spiderman'"
+  (click)="changeHero()"
+  class="btn btn-primary mx-2" >
+    Cambiar nombre
+</button>
+
+<button
+  *ngIf="age !== 25"
+  (click)="changeAge()"
+  class="btn btn-primary mx-2" >
+    Cambiar edad
+</button>
+
+<button
+  *ngIf="(name === 'Spiderman') || (age === 25)"
+  (click)="resetHero()"
+  class="btn btn-secondary">
+    Reset
+</button>
+
+
