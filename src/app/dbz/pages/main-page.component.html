@@ -3,26 +3,17 @@
 
 <div class="row">
   <div class="col">
-    <h4>Listado</h4>
-    <ul class="list-group">
-      <li class="list-group-item">Krillin - 500</li>
-      <li class="list-group-item">Goku - 10,000</li>
-    </ul>
+    <dbz-list [characterList]="characters"
+    (onDelete)="onDeleteCharacter($event)"></dbz-list>
   </div>
 
+  <!--Se usan () para llamar métodos y [] para coger elementos-->
 
   <div class="col">
-    <h4>Agregar personaje</h4>
-
-    <form class="row">
-      <input type="text" class="form-control mb-2" placeholder="Nombre">
-
-      <input tyoe="number" class="form-control mb-2" placeholder="Poder">
-
-      <button class="btn btn-primary">
-        Agregar
-      </button>
-    </form>
-
+    <!--llamamos a un método de este componente (main-page) y lo suscribimos a un
+    evento -> un método event de otro componente (add-character)-->
+    <dbz-add-character (onNewCharacter)="onNewCharacter($event)"></dbz-add-character>
   </div>
 </div>
+
+

@@ -1,1 +1,25 @@
-<p>list works!</p>
+<h4>Listado</h4>
+    <ul class="list-group">
+      <li *ngFor="let character of characterList;
+      let i= index;
+      let isFirst= first;
+      let isLast= last;
+      let isEven= even;
+      let isOdd = odd"
+      class="list-group-item d-flex justify-content-between align-items-center"
+      [ngClass]="{
+        'list-group-item-dark': isLast,
+        'list-group-item-primary': isEven
+      }">
+
+      <div>
+        <span class="text-primary">{{i+1}}. </span>
+        <strong>{{character.name}} - </strong>
+        <span>Power: {{character.power}}</span>
+      </div>
+
+        <button class="btn btn-danger" (click)="onDeleteCharacter(character.id)">X</button>
+      </li>
+    </ul>
+
+    <!--No funciona la desestructuración en html-->
